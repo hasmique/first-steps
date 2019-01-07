@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2> String Exercises.f </h2>
+
+<p> Given 2 strings, establish, if the second is a rotation of the first. A rotation is defined (in this case) as a breaking of the string at a given position, and then prepending the second part; i.e, 'hehatcatint' is a rotation of 'catinthehat'.</p>
+
+String_1: <br />
+<input type="text" id="str1"/>
+<br />
+String_2: <br />
+<input type="text" id="str2"/> 
+<br />
+<input type="button" value="calculate" onclick="calculate()" />
+
+<p id="result"></p>
+
+<script>
+
+var str1Input = document.getElementById("str1");
+var str2Input = document.getElementById("str2");
+var resultElement = document.getElementById("result");
+
+
+
+function calculate() {
+
+var str1 = str1Input.value.toLowerCase();
+var str2 = str2Input.value.toLowerCase();
+
+var lenstr1 = str1.length;
+var lenstr2 = str2.length;
+
+var result = false;
+
+if (lenstr1 != lenstr2) {
+	result = false;
+}
+
+for (var i = 1; i < lenstr1; i++) {
+	var a = str1.substring(0,i);
+    var b = str1.substring(i);
+    var c = b + a;
+    if (c == str2){
+    	result = true; 
+        break; 
+       }
+}
+
+
+document.getElementById("result").innerHTML = result;
+}
+</script>
+</body>
+</html>
