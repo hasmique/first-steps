@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2> String Exercises.e </h2>
+
+<p>Given a string, count occurences for every letter</p>
+
+String_1: <br />
+<input type="text" id="str1"/>
+<br />
+
+<input type="button" value="calculate" onclick="calculate()" />
+
+<p id="result"></p>
+
+<script>
+
+var str1Input = document.getElementById("str1");
+var str2Input = document.getElementById("str2");
+var resultElement = document.getElementById("result");
+
+function calculate() {
+    var str = str1Input.value;
+    var dict = {}
+    var arrStr = str.toLowerCase().split("")
+    var lenStr= str.length;
+
+    for (var i = 0; i < lenStr; i++) {
+	if (arrStr[i] in dict){
+    	dict[arrStr[i]]++;
+	} else {
+    	dict[arrStr[i]] = 1;
+    }
+}
+    
+    document.getElementById("result").innerHTML = JSON.stringify(dict);
+}
+</script>
+</body>
+</html>

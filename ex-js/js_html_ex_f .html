@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2> String Exercises.f </h2>
+
+<p>Given 2 strings, identify if both strings use the same character set, i.e, 'daffy' and 'fadfy' use the same character set.</p>
+
+String_1: <br />
+<input type="text" id="str1"/>
+<br />
+String_2: <br />
+<input type="text" id="str2"/> 
+<br />
+<input type="button" value="calculate" onclick="calculate()" />
+
+<p id="result"></p>
+
+<script>
+
+var str1Input = document.getElementById("str1");
+var str2Input = document.getElementById("str2");
+var resultElement = document.getElementById("result");
+
+function calculate() {
+
+var str1 = str1Input.value;
+var dict1 = {}; 
+var arrStr1 = str1.toLowerCase().split("");
+
+var lenStr1= str1.length;
+
+for (var i = 0; i < lenStr1; i++) {
+	if (arrStr1[i] in dict1){
+    	dict1[arrStr1[i]]++;
+	} else {
+    	dict1[arrStr1[i]] = 1;
+    }
+}
+
+var str2 = str2Input.value;
+var dict2 = {}; 
+var arrStr2 = str2.toLowerCase().split("");
+
+var lenStr2= str2.length;
+
+for (var ii = 0; ii < lenStr2; ii++) {
+	if (arrStr2[ii] in dict2){
+    	dict2[arrStr2[ii]]++;
+	} else {
+    	dict2[arrStr2[ii]] = 1;
+    }
+}
+
+var result = true;
+for (var property1 in dict1) {
+  if (dict1[property1] != dict2[property1]){
+  result = false;
+  }
+  
+var charset2= true;
+for (var property2 in dict2) {
+  if (dict2[property2] != dict1[property2]){
+  result = false;
+  }
+  
+}
+
+document.getElementById("result").innerHTML = result
+}
+}
+</script>
+</body>
+</html>

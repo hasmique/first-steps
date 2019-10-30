@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2> String Exercises.b </h2>
+
+<p> Given 2 strings, establish if the second is a reflection of the first. A reflection is defined (in this case) as a reversal, i.e, 'cba' is the reflection of 'abc </p>
+
+String_1: <br />
+<input type="text" id="str1"/>
+<br />
+String_2: <br />
+<input type="text" id="str2"/> 
+<br />
+<input type="button" value="calculate" onclick="calculate()" />
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+    var str1Input = document.getElementById("str1");
+    var str2Input = document.getElementById("str2");
+    var resultElement = document.getElementById("result");
+
+
+    var str1 = str1Input.value.toLowerCase();
+    var str2 = str2Input.value.toLowerCase();
+    var result = true;
+
+var lenstr1 = str1.length;
+var lenstr2 = str2.length;
+
+var m = str1.split("");
+var n = str2.split("");
+
+if (lenstr1 != lenstr2) {
+	result = false;
+} else {
+	for (var i = 0; i < lenstr2; i++) {
+        if (m[i] != n[lenstr2 - i - 1]) {
+        	result = false;
+            break;
+        }
+    } 
+}
+
+var printres = "";
+
+if (result == true)  {
+    printres = "Second string is the reflection of the first";
+    }
+else {
+    printres = "Second string is not the reflection of the first";
+}
+
+
+    resultElement.innerHTML = printres;
+}
+</script>
+</body>
+</html>
