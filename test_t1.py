@@ -47,28 +47,28 @@ def post_get(id):
 def post_delete(id):
     return delete(POSTS, id)
 
+def test_crud():
+    list_posts = post_list()
 
-list_posts = post_list()
+    print(len(list_posts))
 
-print(len(list_posts))
+    print(type(list_posts[1]))
 
-print(type(list_posts[1]))
+    item_id = list_posts[1]['id']
 
-item_id = list_posts[1]['id']
+    print(item_id)
 
-print(item_id)
+    item_post = post_get(item_id)
 
-item_post = post_get(item_id)
+    print(item_post)
 
-print(item_post)
+    post_delete_result = post_delete(item_id)
 
-post_delete_result = post_delete(item_id)
+    print(post_delete_result)
 
-print(post_delete_result)
+    item_post = post_get(item_id)
 
-item_post = post_get(item_id)
-
-print(item_post)
+    print(item_post)
 
 
 # print([{ id: vv['id'], ['userId']) for v in list(POSTS)])

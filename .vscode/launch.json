@@ -19,7 +19,19 @@
             "args": [
                 "-m",
                 "pytest",
+                "-v",
                 "${file}"
+            ]
+        },
+        {
+            "name": "Pytest: All",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "args": [
+                "-m",
+                "pytest",
+                "-v"
             ]
         }
     ]
